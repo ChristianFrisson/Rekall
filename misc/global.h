@@ -175,6 +175,7 @@ typedef QList<GlRect> Thumbnails;
 
 
 class WatcherBase : public QObject {
+    Q_OBJECT
 public:
     QFileSystemWatcher *watcher;
 public:

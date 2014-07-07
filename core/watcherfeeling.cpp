@@ -93,7 +93,7 @@ void WatcherFeeling::display(Document *document) {
     if(resetInfo) {
         ui->baseText->clear();
         ui->moreText->clear();
-        locationBase = Global::userInfos->getInfo("Location (verbose)");
+        //CF locationBase = Global::userInfos->getInfo("Location (verbose)");
         ui->location->setText(locationBase);
         if(!Global::userInfos->getInfo("Weather (verbose)").isEmpty()) {
             ui->weatherTemperature->setVisible(true);

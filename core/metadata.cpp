@@ -93,6 +93,10 @@ bool Metadata::updateImport(const QString &name, qint16 version) {
     if((Global::falseProject) && (name.toLower().contains("captation")))
         setFunction(DocumentFunctionRender, version);
 
+    //CF: force all videos to be played back on the main player
+    //if( this->getType() == DocumentTypeAudio || this->getType() == DocumentTypeVideo)
+    //    setFunction(DocumentFunctionRender, version);
+
     return anEmptyMetaWasCreated;
 }
 bool Metadata::updateFile(const QFileInfo &_file, const QDir &dirBase, qint16 version, quint16 falseInfoForTest) {

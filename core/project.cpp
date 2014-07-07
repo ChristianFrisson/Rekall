@@ -89,6 +89,7 @@ bool Project::open(const QFileInfoList &files, UiTreeView *view) {
 
     Global::timelineSortChanged = Global::viewerSortChanged = Global::eventsSortChanged = true;
     //Global::groupes->needCalulation = true;
+
     return retour;
 }
 void Project::open(const QDir &dir, const QDir &dirBase) {

@@ -59,7 +59,7 @@ void PlayerVideo::play() {
 }
 void PlayerVideo::pause() {
     refreshControls();
-    ui->playerVideo->pause();
+    ui->playerVideo->pause();//
 }
 void PlayerVideo::seek(qint64 time) {
     refreshControls();

@@ -381,8 +381,18 @@ void Rekall::action() {
                 ui->chutier->getTree()->expandItem(ui->chutier->getTree()->topLevelItem(i));
             chutierIsUpdating = metadataIsUpdating = false;
             ui->centralwidgetStack->setCurrentIndex(0);
+
+            //CF force render files
+            //if(sender() == ui->actionOpen){
+                foreach(Document *document, currentProject->documents){
+                    qDebug("Document item > %s", qPrintable(document->file.absoluteFilePath()));
+                    document->setFunction(DocumentFunctionRender);
+                }
+            //}
         }
         refreshMenus();
+
+
     }
     else if(sender() == ui->actionOpenRecentClear)
         refreshMenus(QFileInfo(), true);
@@ -535,7 +545,7 @@ void Rekall::actionMetadata() {
 }
 
 void Rekall::closeSplash() {
-    splash->close();
+    if(splash) splash->close();
     showMaximized();
     updateGeometry();
     ui->timeline->setWorkspace(0);
