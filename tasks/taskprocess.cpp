@@ -83,7 +83,7 @@ void TaskProcess::run() {
             if(document.needCompleteScan) {
                 qreal durationInSamples = 0;
                 emit(updateList(this, tr("<span style='font-family: Calibri, Arial; font-size: 11px; color: #A1A5A7'>Extracting metadatas of <span style='color: #F5F8FA'>%1</span></span>").arg(name)));
-                QStringList exifDatas = launchCommand(TaskProcessData(Global::pathApplication.absoluteFilePath() + "/tools/exiftool", Global::pathApplication.absoluteFilePath() + "/tools", QStringList() << "−c" << "%+.6f" << "-d" << "%Y:%m:%d %H:%M:%S" << "-G" << file.absoluteFilePath())).second.split("\n");
+                QStringList exifDatas = launchCommand(TaskProcessData(Global::pathApplication.absoluteFilePath() + "/tools/exiftool", Global::pathApplication.absoluteFilePath() + "/tools", QStringList() << "-c" << "%+.6f" << "-d" << "%Y:%m:%d %H:%M:%S" << "-G" << file.absoluteFilePath())).second.split("\n");
                 foreach(const QString &exifData, exifDatas) {
                     QPair<QString, QPair<QString,QString> > meta = Global::seperateMetadataAndGroup(exifData);
                     if((!meta.first.isEmpty()) && (!meta.second.first.isEmpty()) && (!meta.second.second.isEmpty())) {
